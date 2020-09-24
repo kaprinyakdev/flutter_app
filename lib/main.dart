@@ -4,41 +4,57 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
 
-  void answerQuestionFunction(){
-      print('Answer chosenn!');
-  }
+    @override
+    State<StatefulWidget> createState(){
 
+      return MyAppState();
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    
-    var questions = ['Age?', 'Place of birth?'];
-
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My first appp'),
-        ),
-        body: Column(
-          children: [
-            Text('question'),
-            RaisedButton(
-              child: Text('Answer1'),
-              onPressed: () => print('test1'),
-            ),
-            RaisedButton(
-              child: Text('Answer2'),
-              onPressed: answerQuestionFunction,
-            ),
-            RaisedButton(
-              child: Text('Answer3'),
-              onPressed: answerQuestionFunction,
-            )
-          ],
-        ),
-      ),
-    );
-  }
 }
+
+class MyAppState extends State<MyApp>{
+
+    var questionIndex = 0;
+
+    void answerQuestionFunction(){
+      setState(() {
+          questionIndex = questionIndex + 1;
+      });
+      print(questionIndex);
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      
+      var questions = ['Age??', 'Place of birth?'];
+
+      return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('My first app'),
+          ),
+          body: Column(
+            children: [
+              Text(
+                questions[questionIndex],
+              ),
+              RaisedButton(
+                child: Text('Answer1'),
+                onPressed: answerQuestionFunction,
+              ),
+              RaisedButton(
+                child: Text('Answer2'),
+                onPressed: () => print('második'),
+              ),
+              RaisedButton(
+                child: Text('Answer3'),
+                onPressed: answerQuestionFunction,
+              )
+            ],
+          ),
+        ),
+      );
+    }
+  }
