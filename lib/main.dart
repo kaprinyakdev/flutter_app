@@ -7,7 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
 
   void answerQuestionFunction(){
-      print('Answer chosen!');
+      print('Answer chosenn!');
   }
 
 
@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My first app'),
+          title: Text('My first appp'),
         ),
         body: Column(
           children: [
             Text('question'),
             RaisedButton(
               child: Text('Answer1'),
-              onPressed: answerQuestionFunction,
+              onPressed: () => print('test1'),
             ),
             RaisedButton(
               child: Text('Answer2'),
